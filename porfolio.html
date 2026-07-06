@@ -12,20 +12,71 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <!-- CDNs for Technology & Brand Vector Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         :root {
+            /* Dark Theme tokens (default) */
+            --bg: #171717;
+            --bg-card: #212121;
+            --surface: #1e1e1e;
+            --surface-deep: #121212;
+            --accent: #7a8aa3;
+            /* Cool Steel Gray */
+            --accent-bright: #9eabbf;
+            --accent-glow: rgba(122, 138, 163, 0.25);
+            --text: #ececec;
+            --text-muted: #b4b4b4;
+            --border: #2c2c2c;
+            --shadow-3d: #0c0c0c;
+            --shadow-3d-deep: #080808;
+            --btn-face: #212121;
+            --btn-face-mid: #1d1d1d;
+            --radius: 14px;
+            --header-h: 72px;
+            --footer-h: 490px;
+            --btn-primary-text: #171717;
+            --btn-primary-hover-top: #cbd5e1;
+
+            /* Dark Neumorphic palette */
+            --neu-base: #171717;
+            --neu-dark: #070707;
+            --neu-light: #242424;
+            --neu-raised: 5px 5px 10px var(--neu-dark), -5px -5px 10px var(--neu-light);
+            --neu-raised-hover: 7px 7px 14px var(--neu-dark), -7px -7px 14px var(--neu-light);
+            --neu-pressed: inset 5px 5px 10px var(--neu-dark), inset -5px -5px 10px var(--neu-light);
+            --neu-pressed-deep: inset 6px 6px 12px #050505, inset -6px -6px 12px #2d2d2d;
+
+            /* Contextual theme colors */
+            --grid-color: rgba(255, 255, 255, 0.04);
+            --chex-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='40' height='40' fill='rgba(255,255,255,0.015)'/%3E%3Crect x='40' y='40' width='40' height='40' fill='rgba(255,255,255,0.015)'/%3E%3C/svg%3E");
+            --header-bg: rgba(23, 23, 23, 0.85);
+            --overlay-bg: rgba(23, 23, 23, 0.98);
+            --overlay-grid: rgba(255, 255, 255, 0.02);
+            --shadow-card: rgba(0, 0, 0, 0.35);
+            --shadow-card-hover: rgba(0, 0, 0, 0.55);
+
+            /* Footer tokens */
+            --footer-bg: linear-gradient(180deg, #1b1b1b 0%, #111111 40%, #080808 100%);
+            --footer-neu-base: #111111;
+            --footer-neu-dark: #080808;
+            --footer-neu-light: #1b1b1b;
+            --footer-neu-pressed-deep: inset 6px 6px 12px #040404, inset -6px -6px 12px #222222;
+        }
+
+        [data-theme="light"] {
+            /* Light Theme tokens */
             --bg: #f4f6fb;
             --bg-card: #ffffff;
             --surface: #e8ecf4;
             --surface-deep: #d4dae6;
-            --accent: #0d9488;
-            --accent-bright: #14b8a6;
-            --accent-glow: rgba(13, 148, 136, 0.22);
+            --accent: #475569;
+            /* Cool Steel Gray */
+            --accent-bright: #64748b;
+            --accent-glow: rgba(71, 85, 105, 0.15);
             --text: #1a2332;
             --text-muted: #5c6b82;
             --border: #d0d8e8;
@@ -33,17 +84,33 @@
             --shadow-3d-deep: #7a8aa3;
             --btn-face: #f8fafc;
             --btn-face-mid: #eef2f8;
-            --radius: 14px;
-            --header-h: 72px;
-            --footer-h: 490px;
-            /* Neumorphic palette (matches reference) */
+            --btn-primary-text: #ffffff;
+            --btn-primary-hover-top: #334155;
+
+            /* Light Neumorphic palette */
             --neu-base: #f4f6fb;
-            --neu-dark: #c5cedd;
+            --neu-dark: #a8b8cc;
             --neu-light: #ffffff;
             --neu-raised: 5px 5px 10px var(--neu-dark), -5px -5px 10px var(--neu-light);
             --neu-raised-hover: 7px 7px 14px var(--neu-dark), -7px -7px 14px var(--neu-light);
             --neu-pressed: inset 5px 5px 10px var(--neu-dark), inset -5px -5px 10px var(--neu-light);
             --neu-pressed-deep: inset 6px 6px 12px #a8b4c4, inset -6px -6px 12px #f5f7fb;
+
+            /* Contextual theme colors */
+            --grid-color: rgba(176, 190, 210, 0.35);
+            --chex-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='40' height='40' fill='rgba(9,13,22,0.03)'/%3E%3Crect x='40' y='40' width='40' height='40' fill='rgba(9,13,22,0.03)'/%3E%3C/svg%3E");
+            --header-bg: rgba(255, 255, 255, 0.88);
+            --overlay-bg: rgba(244, 246, 251, 0.98);
+            --overlay-grid: rgba(154, 168, 188, 0.07);
+            --shadow-card: rgba(26, 35, 50, 0.06);
+            --shadow-card-hover: rgba(26, 35, 50, 0.10);
+
+            /* Footer tokens */
+            --footer-bg: linear-gradient(180deg, #e2e8f4 0%, #d4dae6 40%, #c5cedd 100%);
+            --footer-neu-base: #d4dae6;
+            --footer-neu-dark: #aeb9c9;
+            --footer-neu-light: #eef2f8;
+            --footer-neu-pressed-deep: inset 6px 6px 12px #9aa8bc, inset -6px -6px 12px #f0f3f9;
         }
 
         *,
@@ -60,7 +127,7 @@
         }
 
         body {
-            font-family: "Ubuntu", system-ui, sans-serif;
+            font-family: "Saira", system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -73,22 +140,38 @@
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(ellipse 80% 50% at 15% -5%, rgba(20, 184, 166, 0.14), transparent),
+                radial-gradient(ellipse 80% 50% at 15% -5%, var(--accent-glow), transparent),
                 radial-gradient(ellipse 60% 40% at 95% 90%, rgba(99, 102, 241, 0.08), transparent);
             pointer-events: none;
             z-index: 0;
         }
 
-        .grid-bg {
+        h1,
+        h2,
+        h3,
+        .logo,
+        nav .btn-3d {
+            font-family: "Orbitron", sans-serif;
+        }
+
+        .texture-bg {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150vh;
+            background-color: var(--bg);
             background-image:
-                linear-gradient(rgba(176, 190, 210, 0.35) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(176, 190, 210, 0.35) 1px, transparent 1px);
-            background-size: 48px 48px;
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"),
+                radial-gradient(150px circle at var(--mouse-x, -9999px) var(--mouse-y, -9999px), var(--accent-glow) 0%, transparent 100%),
+                var(--chex-bg);
+            background-size: auto, 100% 100%, 80px 80px;
+            background-position: 0 0, 0 0, 0 0;
             mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, black, transparent);
             pointer-events: none;
             z-index: 0;
+            transform: translateY(0);
+            will-change: transform;
         }
 
         /* —— Neumorphic 3D buttons (raised → pressed inset) —— */
@@ -108,11 +191,11 @@
             cursor: pointer;
             position: relative;
             padding: 0.72rem 1.3rem;
-            background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 45%, #eef2f8 100%);
+            background: linear-gradient(180deg, var(--neu-light) 0%, var(--btn-face) 45%, var(--btn-face-mid) 100%);
             box-shadow:
                 0 4px 0 var(--neu-dark),
                 inset 1.5px 1.5px 0 var(--neu-light),
-                0 8px 16px rgba(154, 168, 188, 0.3);
+                0 8px 16px rgba(0, 0, 0, 0.4);
             transform: translateY(0);
             touch-action: manipulation;
             transition:
@@ -127,11 +210,11 @@
         .btn-3d:hover,
         .hamburger-3d:hover {
             color: var(--text);
-            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #e2e8f0 100%);
+            background: linear-gradient(180deg, var(--neu-light) 0%, var(--btn-face) 45%, var(--btn-face-mid) 100%);
             box-shadow:
                 0 6px 0 var(--neu-dark),
                 inset 1.5px 1.5px 0 var(--neu-light),
-                0 12px 20px rgba(154, 168, 188, 0.4);
+                0 12px 20px rgba(0, 0, 0, 0.5);
             transform: translateY(-2px);
         }
 
@@ -141,7 +224,7 @@
         .hamburger-3d:active,
         .hamburger-3d.is-pressed {
             color: var(--text);
-            background: #e2e8f0;
+            background: var(--btn-face-mid);
             box-shadow:
                 0 0 0 var(--neu-dark),
                 inset 2px 2px 4px var(--neu-dark),
@@ -150,31 +233,31 @@
         }
 
         .btn-3d--primary {
-            color: #ffffff !important;
+            color: var(--btn-primary-text) !important;
             background: linear-gradient(180deg, var(--accent-bright) 0%, var(--accent) 100%);
             box-shadow:
-                0 5px 0 #074e46,
+                0 5px 0 var(--neu-dark),
                 inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.45),
-                0 8px 16px rgba(13, 148, 136, 0.32) !important;
+                0 8px 16px var(--accent-glow) !important;
             transform: translateY(0) !important;
         }
 
         .btn-3d--primary:hover {
-            color: #ffffff !important;
-            background: linear-gradient(180deg, #1dd0bd 0%, var(--accent-bright) 100%);
+            color: var(--btn-primary-text) !important;
+            background: linear-gradient(180deg, var(--btn-primary-hover-top) 0%, var(--accent-bright) 100%);
             box-shadow:
-                0 7px 0 #074e46,
+                0 7px 0 var(--neu-dark),
                 inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.5),
-                0 14px 24px rgba(13, 148, 136, 0.45) !important;
+                0 14px 24px var(--accent-glow) !important;
             transform: translateY(-2.5px) !important;
         }
 
         .btn-3d--primary:active,
         .btn-3d--primary.is-pressed {
-            color: #ffffff !important;
+            color: var(--btn-primary-text) !important;
             background: var(--accent);
             box-shadow:
-                0 0 0 #074e46,
+                0 0 0 var(--neu-dark),
                 inset 2.5px 2.5px 5px rgba(0, 0, 0, 0.35) !important;
             transform: translateY(5px) !important;
         }
@@ -190,14 +273,14 @@
             box-shadow:
                 0 3px 0 var(--neu-dark),
                 inset 1px 1px 0 var(--neu-light),
-                0 6px 12px rgba(154, 168, 188, 0.25);
+                0 6px 12px var(--shadow-card);
         }
 
         .btn-3d--sm:hover {
             box-shadow:
                 0 4.5px 0 var(--neu-dark),
                 inset 1px 1px 0 var(--neu-light),
-                0 9px 15px rgba(154, 168, 188, 0.35);
+                0 9px 15px var(--shadow-card-hover);
             transform: translateY(-1.5px);
         }
 
@@ -276,7 +359,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 clamp(1.5rem, 6vw, 4rem);
-            background: rgba(255, 255, 255, 0.88);
+            background: var(--header-bg);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -300,20 +383,37 @@
 
         nav ul {
             display: flex;
+            align-items: center;
             list-style: none;
             gap: 0.45rem;
             flex-wrap: wrap;
         }
 
         nav .btn-3d {
-            padding: 0.5rem 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            padding: 0 0.9rem;
             font-size: 0.86rem;
+            box-sizing: border-box;
+        }
+
+        #themeToggle {
+            width: 38px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            box-sizing: border-box;
+            cursor: pointer;
         }
 
         /* Active nav = realistically recessed and locked down */
         nav .btn-3d.active {
             color: var(--text);
-            background: #e2e8f0;
+            background: var(--btn-face-mid);
             box-shadow:
                 0 0 0 var(--neu-dark),
                 inset 2px 2px 4px var(--neu-dark),
@@ -337,8 +437,8 @@
             min-height: 100vh;
             margin-bottom: var(--footer-h);
             box-shadow:
-                0 24px 48px rgba(26, 35, 50, 0.12),
-                0 8px 0 rgba(154, 168, 188, 0.35);
+                0 24px 48px rgba(0, 0, 0, 0.5),
+                0 8px 0 var(--neu-dark);
             overflow-x: hidden;
             /* Guarantees no layout shifts or horizontal scrollbars on animations */
         }
@@ -350,7 +450,7 @@
             right: 0;
             bottom: 0;
             height: 14px;
-            background: linear-gradient(180deg, transparent, rgba(122, 138, 163, 0.25));
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.35));
             pointer-events: none;
         }
 
@@ -527,7 +627,7 @@
         .profile-3d-shadow {
             position: absolute;
             inset: 20px;
-            background: rgba(26, 35, 50, 0.15);
+            background: rgba(0, 0, 0, 0.45);
             filter: blur(20px);
             border-radius: 32px;
             transform: translateZ(-40px) translateY(12px);
@@ -552,7 +652,7 @@
             border-radius: 999px;
             color: var(--text-muted);
             margin-bottom: 1.1rem;
-            box-shadow: 0 2px 8px rgba(26, 35, 50, 0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
         }
 
         .hero-badge .dot {
@@ -585,7 +685,7 @@
         }
 
         #home h1 .highlight {
-            background: linear-gradient(135deg, var(--accent), #6366f1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-bright));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -616,13 +716,13 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             color: var(--text);
-            box-shadow: 0 1px 3px rgba(26, 35, 50, 0.06);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
         }
 
         .hero-skills-cloud span.accent {
             color: var(--accent);
-            border-color: rgba(13, 148, 136, 0.35);
-            background: #ecfdf5;
+            border-color: var(--accent-glow);
+            background: rgba(0, 210, 255, 0.08);
         }
 
         .hero-contact {
@@ -730,13 +830,13 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.35rem 1.5rem;
-            box-shadow: 0 4px 16px rgba(26, 35, 50, 0.06);
+            box-shadow: 0 4px 16px var(--shadow-card);
             transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
 
         .timeline-card:hover {
-            border-color: rgba(13, 148, 136, 0.35);
-            box-shadow: 0 8px 24px rgba(26, 35, 50, 0.08);
+            border-color: var(--accent-glow);
+            box-shadow: 0 8px 24px var(--shadow-card-hover);
         }
 
         .timeline-card h3 {
@@ -790,7 +890,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 999px;
-            box-shadow: 0 1px 3px rgba(26, 35, 50, 0.05);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
             transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
             text-decoration: none;
             cursor: pointer;
@@ -798,8 +898,8 @@
 
         .skill-pill:hover,
         a.skill-pill:hover {
-            border-color: rgba(13, 148, 136, 0.4);
-            box-shadow: 0 4px 12px rgba(26, 35, 50, 0.08);
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
             transform: translateY(-1.5px);
         }
 
@@ -812,9 +912,9 @@
         }
 
         .skill-pill--highlight {
-            color: #0f766e;
-            border-color: rgba(13, 148, 136, 0.35);
-            background: #ecfdf5;
+            color: var(--accent);
+            border-color: var(--accent-glow);
+            background: var(--accent-glow);
         }
 
         /* —— Projects —— */
@@ -831,12 +931,12 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 16px rgba(26, 35, 50, 0.06);
+            box-shadow: 0 4px 16px var(--shadow-card);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .project-card:hover {
-            box-shadow: 0 12px 28px rgba(26, 35, 50, 0.1);
+            box-shadow: 0 12px 28px var(--shadow-card-hover);
         }
 
         .project-thumb {
@@ -968,8 +1068,8 @@
             display: flex;
             gap: 0.65rem;
             align-items: flex-start;
-            background: rgba(13, 148, 136, 0.04);
-            border: 1px solid rgba(13, 148, 136, 0.08);
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
             border-radius: 8px;
             padding: 0.6rem 0.8rem;
             margin-bottom: 0.85rem;
@@ -997,13 +1097,13 @@
 
         /* —— Footer (behind scroll layer, shutter reveal) —— */
         footer {
-            --neu-base: #d4dae6;
-            --neu-dark: #aeb9c9;
-            --neu-light: #eef2f8;
+            --neu-base: var(--footer-neu-base);
+            --neu-dark: var(--footer-neu-dark);
+            --neu-light: var(--footer-neu-light);
             --neu-raised: 5px 5px 10px var(--neu-dark), -5px -5px 10px var(--neu-light);
             --neu-raised-hover: 7px 7px 14px var(--neu-dark), -7px -7px 14px var(--neu-light);
             --neu-pressed: inset 5px 5px 10px var(--neu-dark), inset -5px -5px 10px var(--neu-light);
-            --neu-pressed-deep: inset 6px 6px 12px #9aa8bc, inset -6px -6px 12px #f0f3f9;
+            --neu-pressed-deep: var(--footer-neu-pressed-deep);
             position: fixed;
             left: 0;
             right: 0;
@@ -1016,8 +1116,8 @@
             justify-content: center;
             text-align: center;
             padding: 2rem 1.5rem;
-            background: linear-gradient(180deg, #e2e8f4 0%, #d4dae6 40%, #c5cedd 100%);
-            border-top: 3px solid var(--shadow-3d);
+            background: var(--footer-bg);
+            border-top: 3px solid var(--border);
             color: var(--text-muted);
             font-size: 0.88rem;
         }
@@ -1029,7 +1129,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, var(--accent), #6366f1, var(--accent-bright));
+            background: linear-gradient(90deg, var(--accent), var(--accent-bright));
         }
 
         footer .footer-links {
@@ -1211,7 +1311,7 @@
                 align-items: center;
                 justify-content: center;
                 padding: 2rem 1.5rem;
-                background: rgba(244, 246, 251, 0.98);
+                background: var(--overlay-bg);
                 backdrop-filter: blur(14px);
                 opacity: 0;
                 visibility: hidden;
@@ -1226,8 +1326,8 @@
                 background-image: repeating-linear-gradient(-45deg,
                         transparent,
                         transparent 14px,
-                        rgba(154, 168, 188, 0.07) 14px,
-                        rgba(154, 168, 188, 0.07) 28px);
+                        var(--overlay-grid) 14px,
+                        var(--overlay-grid) 28px);
                 animation: dashPatternMove 12s linear infinite;
                 pointer-events: none;
             }
@@ -1306,12 +1406,13 @@
 
             nav .btn-3d {
                 width: 100%;
+                height: auto !important;
                 font-size: 1.15rem;
                 padding: 1rem 1.4rem;
                 box-shadow:
                     0 5px 0 var(--neu-dark),
                     inset 1.5px 1.5px 0 var(--neu-light),
-                    0 10px 20px rgba(154, 168, 188, 0.25);
+                    0 10px 20px rgba(0, 0, 0, 0.45);
                 transform: translateY(0);
                 transition:
                     box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1325,14 +1426,14 @@
                 box-shadow:
                     0 7px 0 var(--neu-dark),
                     inset 1.5px 1.5px 0 var(--neu-light),
-                    0 14px 24px rgba(154, 168, 188, 0.35);
+                    0 14px 24px rgba(0, 0, 0, 0.55);
             }
 
             nav .btn-3d:active,
             nav .btn-3d.is-pressed,
             nav .btn-3d.active {
                 color: var(--text);
-                background: #e2e8f0;
+                background: var(--btn-face-mid);
                 box-shadow:
                     0 0 0 var(--neu-dark),
                     inset 2px 2px 4px var(--neu-dark),
@@ -1468,7 +1569,7 @@
             font-weight: 500;
             width: max-content;
             max-width: 200px;
-            box-shadow: 0 4px 15px rgba(26, 35, 50, 0.08);
+            box-shadow: 0 4px 15px var(--shadow-card);
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -1489,7 +1590,19 @@
             transform: rotate(45deg);
         }
 
-        .ai-widget-container:hover .ai-speech-bubble {
+        .bubble-svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+            width: 15px;
+            height: 15px;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            fill: none;
+        }
+
+        .ai-widget-container:hover .ai-speech-bubble,
+        .ai-speech-bubble.show {
             opacity: 1;
             transform: translateY(0);
         }
@@ -1638,10 +1751,10 @@
         .cute-pupil-arch {
             width: 14px;
             height: 8px;
-            border: 3px solid #00d2ff;
+            border: 3px solid #ffffff;
             border-bottom: none;
             border-radius: 14px 14px 0 0;
-            box-shadow: 0 -2px 5px rgba(0, 210, 255, 0.4);
+            box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.45);
             transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -1789,14 +1902,32 @@
             visibility: visible;
         }
 
-        .chat-drawer {
+        .chat-drawer-container {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 32px;
+            right: 32px;
             width: 420px;
-            max-width: calc(100vw - 48px);
+            max-width: calc(100vw - 64px);
             height: 600px;
-            max-height: calc(100vh - 48px);
+            max-height: calc(100vh - 64px);
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .chat-drawer-overlay.active .chat-drawer-container {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .chat-drawer {
+            width: 100%;
+            height: 100%;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 20px;
@@ -1804,69 +1935,33 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transform: scale(0.9) translateY(20px);
-            opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-        }
-
-        .chat-drawer-overlay.active .chat-drawer {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
-
-        .chat-drawer-header {
-            padding: 14px 20px;
-            padding-top: calc(14px + env(safe-area-inset-top, 0px));
-            background: var(--neu-base);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-header-left {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text);
-        }
-
-        .chat-header-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-bright);
-            border-radius: 50%;
-            animation: pulse-dot 2s infinite;
-        }
-
-        @keyframes pulse-dot {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.2);
-                opacity: 0.5;
-            }
         }
 
         .chat-drawer-close {
-            background: transparent;
-            border: none;
-            font-size: 1.5rem;
-            line-height: 1;
-            color: var(--text-muted);
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: color 0.2s;
-            padding: 0 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
+            z-index: 10002;
+            padding: 0;
+            line-height: 0.8;
         }
 
         .chat-drawer-close:hover {
+            transform: scale(1.1);
+            background: var(--surface);
             color: var(--text);
         }
 
@@ -1883,7 +1978,7 @@
             display: block;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 768px) {
             .ai-widget-container {
                 bottom: 16px;
                 right: 16px;
@@ -1899,38 +1994,50 @@
                 transform-origin: bottom right;
             }
 
-            .chat-drawer {
+            .chat-drawer-container {
+                top: 0;
+                left: 0;
                 bottom: 0;
                 right: 0;
                 width: 100vw;
                 max-width: 100vw;
-                height: 100vh;
-                max-height: 100vh;
-                border-radius: 0;
+                height: 100dvh;
+                max-height: 100dvh;
                 transform: translateY(100%);
             }
 
-            .chat-drawer-overlay.active .chat-drawer {
+            .chat-drawer-overlay.active .chat-drawer-container {
                 transform: translateY(0);
             }
 
-            .chat-drawer-header {
-                padding-top: calc(16px + env(safe-area-inset-top, 20px));
-                padding-bottom: 16px;
+            .chat-drawer {
+                border-radius: 0;
+                border: none;
             }
 
             .chat-drawer-close {
+                top: calc(16px + env(safe-area-inset-top, 20px));
+                right: 16px;
+                background: var(--bg-card);
+                backdrop-filter: blur(8px);
+                border: 1px solid var(--border);
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
                 font-size: 2.2rem;
-                padding: 8px 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 color: var(--text);
                 line-height: 0.8;
+                box-shadow: 0 4px 12px var(--shadow-card);
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="texture-bg" aria-hidden="true"></div>
 
     <footer
         style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem 1.5rem 2.5rem;">
@@ -1940,8 +2047,8 @@
 
             <!-- Col 1: Bio -->
             <div class="footer-col" style="display: flex; flex-direction: column; gap: 0.8rem;">
-                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 0 0 0.4rem 0;">Amir<span
-                        style="color: var(--accent);">.</span>Rangrez</h3>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 0 0 0.4rem 0;">Our Projects
+                    Are Using Now by <span style="color: var(--accent);">.</span> Real world</h3>
                 <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
                     Passionate Full-Stack Developer crafting high-performance web systems and interactive client
                     experiences.
@@ -2000,7 +2107,7 @@
                         style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;"
                         onmouseover="this.style.color='var(--accent)'"
                         onmouseout="this.style.color='var(--text-muted)'">amirrazarangrez@gmail.com</a>
-                    <a href="tel:+91932268655"
+                    <a href="tel:+919322686505"
                         style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;"
                         onmouseover="this.style.color='var(--accent)'"
                         onmouseout="this.style.color='var(--text-muted)'">+91 93226
@@ -2026,7 +2133,7 @@
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
                 </a>
-                <a href="tel:+91932268655" class="btn-3d btn-3d--sm btn-3d--icon" title="Phone" aria-label="Phone">
+                <a href="tel:+919322686505" class="btn-3d btn-3d--sm btn-3d--icon" title="Phone" aria-label="Phone">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -2104,7 +2211,7 @@
         </button>
 
         <header id="siteHeader">
-            <a href="#home" class="logo" data-nav>Amir<span>.</span>Rangrez</a>
+            <a href="#home" class="logo" data-nav>Our Projects Are Being Used in the<span>.</span>Real World</a>
             <nav id="mainNav">
                 <svg class="nav-dash-svg" viewBox="0 0 400 800" preserveAspectRatio="none" aria-hidden="true">
                     <rect class="nav-dash-rect" x="16" y="16" width="368" height="768" rx="28" fill="none"
@@ -2116,6 +2223,12 @@
                     <li><a href="#study" class="btn-3d btn-3d--sm" data-nav>Education</a></li>
                     <li><a href="#skills" class="btn-3d btn-3d--sm" data-nav>Skills</a></li>
                     <li><a href="#projects" class="btn-3d btn-3d--sm" data-nav>Deployments</a></li>
+                    <li style="display: inline-flex; align-items: center; margin-left: 0.25rem;">
+                        <button id="themeToggle" class="btn-3d btn-3d--sm btn-3d--icon" title="Toggle Theme"
+                            aria-label="Toggle Theme">
+                            <i class="fa-solid fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -2161,7 +2274,7 @@
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                                 </svg>
                             </a>
-                            <a href="tel:+91932268655" class="btn-3d btn-3d--sm btn-3d--icon" title="Phone"
+                            <a href="tel:+919322686505" class="btn-3d btn-3d--sm btn-3d--icon" title="Phone"
                                 aria-label="Phone">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2907,6 +3020,182 @@
             setupGithubDropdown("githubMenuBtn", "githubDropdown", "githubChevron");
             setupGithubDropdown("footerGithubMenuBtn", "footerGithubDropdown", "footerGithubChevron");
 
+            /* Theme Toggle Logic */
+            const themeToggle = document.getElementById("themeToggle");
+
+            // Check stored theme or default to dark
+            const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            updateToggleIcon(savedTheme);
+
+            if (themeToggle) {
+                themeToggle.addEventListener("click", function () {
+                    const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+                    const newTheme = currentTheme === "dark" ? "light" : "dark";
+                    document.documentElement.setAttribute("data-theme", newTheme);
+                    localStorage.setItem("portfolio-theme", newTheme);
+                    updateToggleIcon(newTheme);
+
+                    // Also pass theme change to chatbot iframe if it is loaded
+                    const chatIframe = document.getElementById("chatIframe");
+                    if (chatIframe && chatIframe.contentWindow) {
+                        chatIframe.contentWindow.postMessage({ type: "theme-change", theme: newTheme }, "*");
+                    }
+                });
+            }
+
+            function updateToggleIcon(theme) {
+                if (!themeToggle) return;
+                const icon = themeToggle.querySelector("i");
+                if (icon) {
+                    if (theme === "light") {
+                        icon.className = "fa-solid fa-moon";
+                    } else {
+                        icon.className = "fa-solid fa-sun";
+                    }
+                }
+            }
+
+            // Sync theme when chatbot iframe finishes loading
+            const chatIframe = document.getElementById("chatIframe");
+            if (chatIframe) {
+                chatIframe.addEventListener("load", function () {
+                    const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+                    if (chatIframe.contentWindow) {
+                        chatIframe.contentWindow.postMessage({ type: "theme-change", theme: currentTheme }, "*");
+                    }
+                });
+            }
+
+            // ============================================================
+            // DYNAMIC CREATIVE INTERACTIVITY (Clicks, Speech, Grid Lights)
+            // ============================================================
+
+            // 1. Tactile Web Audio Synthesizer
+            function playClickSound() {
+                try {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    const audioCtx = new AudioContextClass();
+
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(180, audioCtx.currentTime + 0.04);
+
+                    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+
+                    osc.start(audioCtx.currentTime);
+                    osc.stop(audioCtx.currentTime + 0.05);
+                } catch (e) {
+                    // Fail silently
+                }
+            }
+
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.btn-3d') || e.target.closest('.btn-3d--sm') || e.target.closest('.chat-drawer-close') || e.target.closest('#themeToggle') || e.target.closest('.ai-widget-container')) {
+                    playClickSound();
+                }
+            });
+
+            // 2. Grid Light Tracker & Parallax Scroll
+            const textureBg = document.querySelector('.texture-bg');
+            window.addEventListener('mousemove', function (e) {
+                document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+                document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+            });
+            window.addEventListener('scroll', function () {
+                if (textureBg) {
+                    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                    textureBg.style.transform = `translateY(${scrolled * -0.15}px)`;
+                }
+            });
+
+            // 3. Robot Speech Engine
+            let bubbleTimeout = null;
+            let lastSpeechText = '';
+            function showRobotSpeech(message, duration = 4000) {
+                const bubble = document.getElementById('aiSpeechBubble');
+                if (!bubble || message === lastSpeechText) return;
+
+                lastSpeechText = message;
+                if (bubbleTimeout) clearTimeout(bubbleTimeout);
+
+                bubble.innerHTML = message;
+                bubble.classList.add('show');
+
+                bubbleTimeout = setTimeout(function () {
+                    bubble.classList.remove('show');
+                    lastSpeechText = '';
+                }, duration);
+            }
+
+            // Welcome message
+            setTimeout(function () {
+                showRobotSpeech('<svg class="bubble-svg" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5m0 0V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v7m0 0V5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6M8 9V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v11a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6V11a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2"/></svg> Hey there! Welcome to my portfolio! Let\'s chat!', 5000);
+            }, 3000);
+
+            // Theme click bubble handler
+            if (themeToggle) {
+                themeToggle.addEventListener("click", function () {
+                    const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+                    if (currentTheme === "light") {
+                        showRobotSpeech('<svg class="bubble-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg> Ah, nice and bright! Looks fresh!', 4000);
+                    } else {
+                        showRobotSpeech('<svg class="bubble-svg" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Ah, high-tech dark mode! Easy on the eyes!', 4000);
+                    }
+                });
+            }
+
+            // Scroll Observer for Speech Bubble Context
+            const sectionPhrases = {
+                'study': '<svg class="bubble-svg" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg> Here is where I learned engineering concepts!',
+                'skills': '<svg class="bubble-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> I specialize in React, Node, and Python developments!',
+                'projects': '<svg class="bubble-svg" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5s3.19-1 5.5-2.5M12 2C6.5 2 2 6.5 2 12c0 2.5 1.5 4.5 3.5 5.5l11-11C15.5 3.5 13.5 2 12 2zm10 0-3 3m1 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg> Check out my latest live project deployments!',
+                'contact': '<svg class="bubble-svg" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Drop me a line, I would love to collaborate!'
+            };
+            const bubbleObserverOptions = {
+                root: null,
+                threshold: 0.5
+            };
+            const bubbleObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        if (sectionPhrases[sectionId]) {
+                            showRobotSpeech(sectionPhrases[sectionId], 5000);
+                        }
+                    }
+                });
+            }, bubbleObserverOptions);
+
+            Object.keys(sectionPhrases).forEach(function (id) {
+                const sec = document.getElementById(id);
+                if (sec) bubbleObserver.observe(sec);
+            });
+
+            // Idle speech trigger
+            let idleTime = 0;
+            const idleInterval = setInterval(function () {
+                idleTime += 5;
+                if (idleTime >= 30) {
+                    showRobotSpeech('<svg class="bubble-svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Bored? Ask my AI agent anything!', 5000);
+                    idleTime = 0;
+                }
+            }, 5000);
+
+            function resetIdleTimer() {
+                idleTime = 0;
+            }
+            window.addEventListener('mousemove', resetIdleTimer);
+            window.addEventListener('keypress', resetIdleTimer);
+            window.addEventListener('scroll', resetIdleTimer);
+
             /* 3D Scroll Reveal Intersection Observer */
             const revealObserver = new IntersectionObserver(
                 function (entries) {
@@ -3084,11 +3373,6 @@
         <div class="ai-speech-bubble" id="aiSpeechBubble">Hey there! Chat with my AI representation!</div>
         <button class="robot-btn" id="robotBtn" aria-label="Chat with AI Assistant">
             <div class="cute-robot">
-                <!-- Antenna -->
-                <div class="cute-antenna">
-                    <div class="antenna-ball"></div>
-                    <div class="antenna-stem"></div>
-                </div>
                 <!-- Body/Head (Spherical) -->
                 <div class="cute-body" id="robotHead">
                     <!-- Ears -->
@@ -3122,16 +3406,12 @@
 
     <!-- Chat Bot Drawer Overlay -->
     <div class="chat-drawer-overlay" id="chatDrawerOverlay">
-        <div class="chat-drawer" id="chatDrawer">
-            <div class="chat-drawer-header">
-                <div class="chat-header-left">
-                    <div class="chat-header-dot"></div>
-                    <span>Raza Nexus Chatbot</span>
+        <div class="chat-drawer-container">
+            <button class="chat-drawer-close" id="chatDrawerClose" aria-label="Close Chat">&times;</button>
+            <div class="chat-drawer" id="chatDrawer">
+                <div class="chat-drawer-body">
+                    <iframe src="chatbot.html" class="chat-iframe" id="chatIframe"></iframe>
                 </div>
-                <button class="chat-drawer-close" id="chatDrawerClose" aria-label="Close Chat">&times;</button>
-            </div>
-            <div class="chat-drawer-body">
-                <iframe src="chatbot.html" class="chat-iframe" id="chatIframe"></iframe>
             </div>
         </div>
     </div>
